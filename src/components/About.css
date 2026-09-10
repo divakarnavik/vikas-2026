@@ -1,0 +1,203 @@
+.about-section {
+  position: relative;
+  height: 300vh; /* creates scroll area */
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.about-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-header {
+  position: absolute;
+  top: 6rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.about-header .technical-label {
+  color: var(--color-orange);
+  display: block;
+}
+
+.about-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.panel-indicator {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+.indicator-current {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.about-header h2 {
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.about-horizontal-scroll {
+  display: flex;
+  width: 300vw; /* 3 panels */
+  height: 100vh;
+  margin-top: 0;
+}
+
+.about-panel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.panel-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.5); /* Adjusted for professional brightness */
+  z-index: 1;
+}
+
+.glass-box {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 12rem 10% 4rem 10%;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.glass-box h3 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.glass-box p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+}
+
+.panel-meta {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.panel-meta .technical-label {
+  color: var(--color-orange);
+}
+
+.panel-meta.align-global {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vikas-acronym {
+  list-style: none;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.vikas-acronym li {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.vikas-acronym li span {
+  color: var(--color-orange);
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.scroll-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.scroll-progress-bar {
+  height: 4px;
+  background-color: var(--color-orange);
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .about-section {
+    height: auto;
+  }
+  .about-sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+  .about-horizontal-scroll {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+    margin-top: 10rem;
+    gap: 4rem;
+    transform: none !important;
+  }
+  .about-panel {
+    width: 100%;
+    height: auto;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  .glass-box {
+    padding: 2rem;
+  }
+  .glass-box h3 {
+    font-size: 2rem;
+  }
+  .scroll-progress-container {
+    display: none;
+  }
+}

@@ -1,0 +1,217 @@
+.timeline-section {
+  position: relative;
+  height: 300vh; /* creates scroll area for the 3 stages */
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.timeline-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden; /* Clips the bottom of the semicircle */
+  display: flex;
+  align-items: center;
+}
+
+.timeline-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.timeline-header {
+  padding-top: 8rem;
+}
+
+.timeline-header .technical-label {
+  color: var(--color-blue);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-header h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  color: rgba(0,0,0,0.8);
+}
+
+.timeline-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.stage-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.absolute-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.timeline-date {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.timeline-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+}
+
+.timeline-card p {
+  color: var(--color-white);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 4px solid var(--color-black);
+  z-index: 2;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.stage-output {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.02);
+  font-weight: 500;
+}
+
+.output-label {
+  font-family: var(--font-heading);
+  color: var(--color-blue);
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.semicircle-container {
+  position: absolute;
+  bottom: -40vw; /* Push half of it below the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 1200px;
+  max-height: 1200px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.semicircle-arc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(0,0,0,0.1);
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.arc-node {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--color-white);
+  border: 2px solid var(--color-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+
+.arc-node.active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+  transform: scale(1.1);
+}
+
+.arc-node.completed {
+  background: var(--color-blue);
+  border-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+/* Position nodes on the arc */
+.node-1 {
+  top: 20%;
+  right: 5%;
+  transform: translate(50%, -50%);
+}
+
+.node-2 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.node-3 {
+  top: 20%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .stage-content {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: -10vh; /* Push text up so it doesn't overlap semicircle */
+  }
+  .stage-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .stage-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .stage-output {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  .semicircle-container {
+    bottom: -60vw;
+    width: 140vw;
+    height: 140vw;
+  }
+  .arc-node {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  .timeline-header {
+    padding-top: 6rem;
+  }
+}
